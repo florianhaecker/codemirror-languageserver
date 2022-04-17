@@ -3,6 +3,11 @@
         "moduleResolution": "node",
         "target": "ES2019",
         "rootDir": "src",
-        "declaration": true
-    }
+        "outDir": "dist",
+        "sourceMap": true,
+        "strict": true,
+        "declaration": true,
+        "skipLibCheck": true,
+    },
+    "include": ["src"]
 }
