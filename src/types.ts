@@ -27,21 +27,22 @@ export interface LSPNotifyMap {
     initialized: LSP.InitializedParams;
     'textDocument/didChange': LSP.DidChangeTextDocumentParams;
     'textDocument/didOpen': LSP.DidOpenTextDocumentParams;
+    'textDocument/didClose': LSP.DidCloseTextDocumentParams;
 }
 
 // Server to client
-export interface LSPEventMap {
+export interface LSPNotificationMap {
     'textDocument/publishDiagnostics': LSP.PublishDiagnosticsParams;
 }
 
 export type Notification = {
-    [key in keyof LSPEventMap]: {
+    [key in keyof LSPNotificationMap]: {
         jsonrpc: '2.0';
         id?: null | undefined;
         method: key;
-        params: LSPEventMap[key];
+        params: LSPNotificationMap[key];
     };
-}[keyof LSPEventMap];
+}[keyof LSPNotificationMap];
 
 
 export interface LanguageServerOptions {
